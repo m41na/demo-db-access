@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table("customer_customer_demo")
+@Table("customer_demographics")
 public class Demographic {
 
-	private String customerId;
 	private String customerTypeId;
+	private String customerDesc;
 }
