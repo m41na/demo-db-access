@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Table("order_details")
-public class OrderDetails {
+public class OrderDetail {
 
 	private Long orderId;
 	private Long productId;

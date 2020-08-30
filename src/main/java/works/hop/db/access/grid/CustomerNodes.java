@@ -2,18 +2,18 @@ package works.hop.db.access.grid;
 
 public class CustomerNodes {
 
-    public static class CustomerTableNode<T extends Comparable<T>> extends Node<T> {
+    public static class CustomerNode<T extends Comparable<T>> extends TableNode<T> {
 
-        public CustomerTableNode() {
+        public CustomerNode() {
             setSrcTable("customers");
         }
     }
 
-    public static class CustomerId extends CustomerTableNode<String> {
+    public static class CustomerId extends CustomerNode<String> {
 
         public CustomerId() {
-            setIsPk(true);
-            setColumnName("customer_id");
+            setPk(true);
+            setSrcColumn("customer_id");
         }
     }
 }

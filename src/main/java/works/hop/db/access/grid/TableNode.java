@@ -9,13 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Node<T extends Comparable<T>> {
+public class TableNode<T extends Comparable<T>> {
 
 	private T value;
 	private String label;
 	private String srcTable;
+	private String srcColumn;
 	private String destTable;
-	private String columnName;
+	private String destColumn;
 	private String selectQuery;
 	private boolean isPk;
 	private boolean isFk;

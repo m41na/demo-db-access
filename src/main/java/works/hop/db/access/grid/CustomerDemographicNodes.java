@@ -2,44 +2,46 @@ package works.hop.db.access.grid;
 
 public class CustomerDemographicNodes {
 
-    public static class CustomerDemographicTableNode<T extends Comparable<T>> extends Node<T> {
+    public static class CustomerDemographicNode<T extends Comparable<T>> extends TableNode<T> {
 
-        public CustomerDemographicTableNode() {
+        public CustomerDemographicNode() {
             setSrcTable("customer_customer_demo");
         }
     }
 
-    public static class CustomerId extends CustomerDemographicTableNode<String> {
+    public static class CustomerId extends CustomerDemographicNode<String> {
 
         public CustomerId() {
-            setIsPk(true);
-            setColumnName("customer_id");
+            setPk(true);
+            setSrcColumn("customer_id");
         }
     }
 
-    public static class CustomerTypeId extends CustomerDemographicTableNode<String> {
+    public static class CustomerTypeId extends CustomerDemographicNode<String> {
 
         public CustomerTypeId() {
-            setIsPk(true);
-            setColumnName("customer_type_id");
+        	setPk(true);
+        	setSrcColumn("customer_type_id");
         }
     }
 
-    public static class CustomerIdFk extends CustomerDemographicTableNode<String> {
+    public static class CustomerIdFk extends CustomerDemographicNode<String> {
 
         public CustomerIdFk() {
-            setIsFk(true);
-            setColumnName("customer_id");
+            setFk(true);
+            setSrcColumn("customer_id");
             setDestTable("customers");
+            setDestColumn(getSrcColumn());
         }
     }
 
-    public static class CustomerTypeIdFk extends CustomerDemographicTableNode<String> {
+    public static class CustomerTypeIdFk extends CustomerDemographicNode<String> {
 
         public CustomerTypeIdFk() {
-            setIsFk(true);
-            setColumnName("customer_type_id");
+            setFk(true);
+            setSrcColumn("customer_type_id");
             setDestTable("customer_demographics");
+            setDestColumn(getSrcColumn());
         }
     }
 }

@@ -35,5 +35,5 @@ public class Order {
 	private String shipRegion;
 	private String shipPostal_code;
 	private String shipCountry;
-	private Set<OrderDetails> orderDetails;
+	private Set<OrderDetail> orderDetails;
 }
