@@ -1,13 +1,12 @@
 package works.hop.db.access.entity;
 
-import java.math.BigDecimal;
-
-import org.springframework.data.relational.core.mapping.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.relational.core.mapping.Table;
+
+import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
@@ -16,9 +15,9 @@ import lombok.NoArgsConstructor;
 @Table("order_details")
 public class OrderDetail {
 
-	private Long orderId;
-	private Long productId;
-	private BigDecimal unitPrice;
-	private int quantity;
-	private BigDecimal discount;
+    private Long orderId;
+    private Long productId;
+    private BigDecimal unitPrice;
+    private int quantity;
+    private BigDecimal discount;
 }

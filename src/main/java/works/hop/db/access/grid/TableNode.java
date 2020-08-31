@@ -9,16 +9,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TableNode<T extends Comparable<T>> {
+public class TableNode<T> {
 
-	private T value;
-	private String label;
-	private String srcTable;
-	private String srcColumn;
-	private String destTable;
-	private String destColumn;
-	private String selectQuery;
-	private boolean isPk;
-	private boolean isFk;
-	private boolean isUnique;
+    private NodeValue<T> value;
+    private String label;
+    private String srcTable;
+    private String srcColumn;
+    private String destTable;
+    private String destColumn;
+    private String selectQuery;
+    private boolean isPk;
+    private boolean isFk;
+    private boolean isUnique;
+    private boolean isTable;
 }
