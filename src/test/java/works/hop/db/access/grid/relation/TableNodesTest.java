@@ -9,7 +9,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 class TableNodesTest {
 
-    private TableNodes graph = new TableNodes();
+    private final TableNodes graph = new TableNodes();
+
+    @Test
+    void testPrintGraph(){
+        System.out.println(Graphs.printGraph(graph));
+    }
 
     @Test
     void vertices() {

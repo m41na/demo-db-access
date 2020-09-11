@@ -22,4 +22,31 @@ public class TableNode<T> {
     private boolean isFk;
     private boolean isUnique;
     private boolean isTable;
+
+    public TableNode(String label, String tableName){
+        this.srcTable = tableName;
+        this.label = label;
+    }
+
+    public static <V>TableNode<V> tableNode(String label, String tableName){
+        TableNode<V> tableNode = new TableNode<>(label, tableName);
+        tableNode.setTable(true);
+        return tableNode;
+    }
+
+    public static <V>TableNode<V> pkIdNode(String label, String tableName, String srcColumn){
+        TableNode<V> pkIdNode = new TableNode<>(label, tableName);
+        pkIdNode.setPk(true);
+        pkIdNode.setSrcColumn(srcColumn);
+        return pkIdNode;
+    }
+
+    public static <V>TableNode<V> fkIdNode(String label, String tableName, String srcColumn, String destTable, String destColumn){
+        TableNode<V> fkIdNode = new TableNode<>(label, tableName);
+        fkIdNode.setFk(true);
+        fkIdNode.setSrcColumn(srcColumn);
+        fkIdNode.setDestTable(destTable);
+        fkIdNode.setDestColumn(destColumn);
+        return fkIdNode;
+    }
 }

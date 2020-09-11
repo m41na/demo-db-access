@@ -1,17 +1,28 @@
 package works.hop.db.access.grid.relation;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import works.hop.db.access.grid.TableNode;
 import works.hop.db.access.grid.node.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Data
+@AllArgsConstructor
+@Builder
 public class TableNodes {
 
-    private final Map<String, TableNode<?>> nodes = new HashMap<>();
-    private final Map<String, Set<NodeEdge>> adjacencyList = new HashMap<>();
+    private Map<String, TableNode<?>> nodes;
+    private Map<String, Set<NodeEdge>> adjacencyList;
 
     public TableNodes() {
+        initializeGraph();
+    }
+
+    public void initializeGraph(){
+        nodes = new HashMap<>();
         nodes.put("A", new CategoryNodes.CategoryTable("A"));
         nodes.put("B", new CategoryNodes.CategoryId("B"));
         nodes.put("C", new CustomerDemographicNodes.CustomerDemographicTable("C"));
@@ -56,10 +67,11 @@ public class TableNodes {
         nodes.put("P1", new TerritoryNodes.TerritoryTable("P1"));
         nodes.put("Q1", new TerritoryNodes.TerritoryId("Q1"));
         nodes.put("R1", new TerritoryNodes.TerritoryRegionIdFk("R1"));
-        initializeGraph();
+        initializeEdges();
     }
 
-    public void initializeGraph() {
+    public void initializeEdges() {
+        adjacencyList = new HashMap<>();
         addEdge("A", "B");
         addEdge("C", "D");
         addEdge("C", "E");
@@ -91,7 +103,7 @@ public class TableNodes {
         addEdge("P1", "Q1");
         addEdge("P1", "R1");
         addEdge("E", "G");
-        addEdge("F", "A");
+        addEdge("F", "I");
         addEdge("M", "K");
         addEdge("Q", "K");
         addEdge("R", "P1");
@@ -99,7 +111,7 @@ public class TableNodes {
         addEdge("W", "D1");
         addEdge("A1", "G");
         addEdge("B1", "K");
-        addEdge("C1", "N1");
+        addEdge("C1", "J1");
         addEdge("F1", "A");
         addEdge("G1", "N1");
         addEdge("R1", "H1");

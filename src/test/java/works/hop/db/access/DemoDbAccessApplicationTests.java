@@ -23,12 +23,12 @@ class DemoDbAccessApplicationTests {
     @Test
     void contextLoads() {
         Iterable<Customer> customers = customersRepository.findAll();
-        customers.forEach(cus -> System.out.println(cus));
+        customers.forEach(System.out::println);
 
         Iterable<Supplier> suppliers = suppliersRepository.findAll();
-        suppliers.forEach(sup -> System.out.println(sup));
+        suppliers.forEach(System.out::println);
 
         Iterable<Product> products = productsRepository.findAll();
-        products.forEach(prd -> System.out.println(prd));
+        products.forEach(System.out::println);
     }
 }
