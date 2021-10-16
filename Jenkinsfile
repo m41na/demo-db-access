@@ -17,7 +17,7 @@ pipeline {
                 // Get some code from a GitHub repository
                 git 'https://github.com/m41na/demo-db-access.git'
                 // Run gradle on a Unix agent.
-                sh "gradle clean build"
+                sh 'gradle -Partifactory_user=$artifactory_user -Partifactory_password=$artifactory_password clean build'
             }
 
             post {
