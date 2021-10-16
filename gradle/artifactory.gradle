@@ -1,0 +1,18 @@
+artifactory {
+    contextUrl = 'http://143.198.100.39:8081/artifactory'
+    publish {
+        repository {
+            repoKey = 'maven-internal'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+        }
+        defaults {
+            publications('mavenJava')
+            publishArtifacts = true
+            publishPom = true
+        }
+    }
+    resolve {
+        repoKey = 'jcenter'
+    }
+}

@@ -2,7 +2,11 @@ plugins {
     id 'org.springframework.boot' version '2.5.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'maven-publish'
+    id "com.jfrog.artifactory" version "4.24.20"
 }
+
+apply from: 'gradle/artifactory.gradle'
 
 group = 'works.hop'
 version = '0.0.1-SNAPSHOT'
@@ -41,3 +45,14 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication){
+            groupId = 'works.hop'
+            artifactId = 'demo-db-access'
+            from components.java
+        }
+    }
+}
+
