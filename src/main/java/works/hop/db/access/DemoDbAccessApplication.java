@@ -13,7 +13,6 @@ public class DemoDbAccessApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // TODO Auto-generated method stub
-
+        System.out.printf("%s has started successfully\n", DemoDbAccessApplication.class);
     }
 }

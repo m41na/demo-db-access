@@ -31,7 +31,7 @@ class TableNodesTest {
     @Test
     void inbound() {
         List<NodeEdge> goingTo = graph.inbound("A");
-        assertThat(goingTo.size(), Is.is(2));
+        assertThat(goingTo.size(), Is.is(1));
     }
 
     @Test
