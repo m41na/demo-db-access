@@ -6,7 +6,7 @@ plugins {
     id "com.jfrog.artifactory" version "4.24.20"
 }
 
-apply from: 'gradle/artifactory.gradle'
+//apply from: 'gradle/artifactory.gradle'
 
 group = 'works.hop'
 version = '0.0.1-SNAPSHOT'
@@ -56,3 +56,21 @@ publishing {
     }
 }
 
+artifactory {
+    contextUrl = 'http://143.198.100.39:8081/artifactory'
+    publish {
+        repository {
+            repoKey = 'maven-internal'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+        }
+        defaults {
+            publications('mavenJava')
+            publishArtifacts = true
+            publishPom = true
+        }
+    }
+    resolve {
+        repoKey = 'jcenter'
+    }
+}
